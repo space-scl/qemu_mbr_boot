@@ -3,6 +3,9 @@
 # 	make distclean && make x86_64_defconfig && make menuconfig && make -j4
 #   The generated kerkel: arch/x86/boot/bzImage
 
+# Default LOOPN is 14, but it is better to set it on the command line
+LOOPN := 14
+
 disk:
 	qemu-img create -f raw disk.img 1G
 	# need to enable bootable flag by input a
@@ -20,7 +23,7 @@ mountAndPopulate:
 	# Grub installs the boot info in the fist section of the whole device(MBR, GPT)
 	# So can not specify the /dev/mapper/loop1p1 for specific partition
 	grub-install --boot-directory=/mnt/disk/boot/ /dev/loop$(LOOPN)
-	cp -a /home/scl/learning/rootfs/* /mnt/disk/
+	cp -a /home/scl/learning/mbr/rootfs/* /mnt/disk/
 	umount /mnt/disk
 	kpartx -d disk.img
 
