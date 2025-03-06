@@ -10,6 +10,7 @@ disk:
 	# map all device partitions to separated loop partition in /dev/mapper/loop<n>p<n>
 	# Loop Device is located at /dev/loop<n>
 	kpartx -av disk.img
+	ls /dev/mapper
 
 mountAndPopulate:
 	mkfs -t ext4 /dev/mapper/loop$(LOOPN)p1
@@ -22,8 +23,10 @@ mountAndPopulate:
 	cp -a /home/scl/learning/rootfs/* /mnt/disk/
 	umount /mnt/disk
 	kpartx -d disk.img
+
+boot:
 	#qemu-system-x86_64 disk.img -kernel ../qemu_test/build/vmlinuz  -serial stdio -append "root=/dev/sda1 console=ttyS0,115200"
-	qemu-system-x86_64 disk.img -kernel bzImage  -serial stdio -append "root=/dev/sda1 console=ttyS0,115200"
+	-qemu-system-x86_64 disk.img -kernel bzImage  -serial stdio -append "root=/dev/sda1 console=ttyS0,115200"
 
 
 distclean:
