@@ -5,6 +5,7 @@
 
 # Default LOOPN is 14, but it is better to set it on the command line
 ################################
+SHELL := /bin/bash
 LOOPN := 14
 #
 #
@@ -52,12 +53,13 @@ ROOTFS_DIR = rootfs-arm/
 
 .PHONY: all clean disk mountAndPopulate boot
 
-all: disk mountAndPopulate
+all: disk mountAndPopulate boot
 
 # 创建磁盘镜像并分区
 disk:
 	qemu-img create -f raw $(DISK_IMAGE) 1G
-	fdisk $(DISK_IMAGE)  # 创建单个分区
+	echo -e "n\np\n1\n\n\na\nw\n" |fdisk $(DISK_IMAGE)  # 创建单个分区
+	#fdisk $(DISK_IMAGE)  # 创建单个分区
 	kpartx -av $(DISK_IMAGE)
 	sleep 1  # 等待设备节点生成
 	ls /dev/mapper
