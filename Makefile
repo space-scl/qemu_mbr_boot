@@ -6,7 +6,7 @@
 # Default LOOPN is 14, but it is better to set it on the command line
 ################################
 SHELL := /bin/bash
-LOOPN := 14
+LOOPN := 3
 #
 #
 #disk:
