@@ -91,7 +91,7 @@ boot:
 		-dtb $(DTB_FILE) \
 		-drive file=$(DISK_IMAGE),if=sd,format=raw \
 		-serial stdio\
-		-append "root=/dev/mmcblk0p1 rw console=ttyAMA0"\
+		-append "root=/dev/mmcblk0p1 rw console=ttyAMA0 printk.time=1"\
 		-monitor telnet:127.0.0.1:5555,server,nowait
 
 #	-qemu-system-x86_64 disk.img -kernel bzImage  -serial stdio -append "root=/dev/sda1 console=ttyS0,115200"
