@@ -92,7 +92,8 @@ boot:
 		-drive file=$(DISK_IMAGE),if=sd,format=raw \
 		-serial stdio\
 		-append "root=/dev/mmcblk0p1 rw console=ttyAMA0 printk.time=1"\
-		-monitor telnet:127.0.0.1:5555,server,nowait
+		-monitor telnet:127.0.0.1:5555,server,nowait \
+		-device at24c-eeprom,address=0x51,bus=i2c
 
 #	-qemu-system-x86_64 disk.img -kernel bzImage  -serial stdio -append "root=/dev/sda1 console=ttyS0,115200"
 clean:
