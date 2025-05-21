@@ -1,6 +1,6 @@
 # QEMU MBR Boot :computer:
 
-![Project Banner](./dual_boot_disk_layout.gif) <!-- Replace with your image path -->
+![Project Banner](./dual_boot_disk_layout.gif)
 
 A QEMU-based project for learning Linux system porting, including **U-Boot, RootFS, Kernel, and Kernel Module** development. Perfect for experimenting with embedded Linux without physical hardware!
 
