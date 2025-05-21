@@ -1,6 +1,7 @@
 # QEMU MBR Boot :computer:
 
-![Project Banner](./dual_boot_disk_layout.gif)
+![Project Banner](./dual_boot_disk_layout.gif) <!-- This picture is quoted form https://www.akadia.com/services/dual_boot.html -->
+*Image source: [akadia.com - Dual Boot Configuration](https://www.akadia.com/services/dual_boot.html)*
 
 A QEMU-based project for learning Linux system porting, including **U-Boot, RootFS, Kernel, and Kernel Module** development. Perfect for experimenting with embedded Linux without physical hardware!
 
